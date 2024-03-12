@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Practice</title>
+</head>
+<body>
+    <form name="info">
+        <input name="one" value="1">
+        <input name="two" value="2">
+    </form>
+
+    <form>
+        <input type="radio" name="age" value="10">10
+        <input type="radio" name="age" value="20">20
+    </form>
+
+    <form id="form3">
+        <fieldset>
+            <legend>User</legend>
+            
+        </fieldset>
+    </form>
+
+    <script>
+    let formInfo = document.forms.info;
+    let element = formInfo.elements.one;
+    console.log(element.value);
+
+    let formAge = document.forms[1];
+    let ageElements = formAge.elements.age;
+    console.log(`Age is ${ageElements[1].value}`);
+
+
+    </script>
+</body>
+</html>
