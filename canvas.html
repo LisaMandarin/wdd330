@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas experiment</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <script type="application/javascript">
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        let isHappy = true; // A flag to track which  face  to   draw
+        
+        function drawFace() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+            ctx.beginPath();
+            ctx.arc(75, 75, 50, 0, Math.PI*2, true);  //Outer circle
+            
+            
+            if (isHappy) {
+                ctx.moveTo(110, 75);
+                ctx.arc(75, 75, 35, 0, Math.PI, false)  //Mouth (counterclockwise);
+            } else {
+                ctx.moveTo(100, 100);
+                ctx.arc(75, 100, 25, 0, Math.PI, true)  // Frowny mouth (counterclockwise)
+            }
+          
+            ctx.moveTo(65, 65);
+            ctx.arc(60, 65, 5, 0, Math.PI*2, true); // Left eye
+            ctx.moveTo(95, 65);
+            ctx.arc(90, 65, 5, 0, Math.PI*2, 0, true); // Right eye
+            
+            ctx.stroke()
+        }
+
+            function toggleFace() {
+                isHappy = !isHappy //Toggle the flag
+                drawFace();
+            }
+
+            canvas.addEventListener('click', toggleFace); // Add click event listener to canvas
+
+            drawFace(); // Draw the initial face
+    </script>
+  </body>
+</html>
